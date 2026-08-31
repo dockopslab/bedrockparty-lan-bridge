@@ -1,0 +1,15 @@
+[Unit]
+Description=BedrockParty Minecraft Bedrock LAN Proxy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/bedrockparty-proxy.env
+ExecStart=/opt/bedrock-lan-proxy.py
+Restart=always
+RestartSec=2
+User=root
+
+[Install]
+WantedBy=multi-user.target

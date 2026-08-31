@@ -1,0 +1,72 @@
+name: bedrockparty
+
+services:
+  proxy:
+    build:
+      context: ./proxy-bedrock
+    image: bedrockparty-raknet-proxy:local
+    restart: unless-stopped
+    init: true
+    network_mode: host
+    read_only: true
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    environment:
+      LISTEN_IP: "0.0.0.0"
+      LISTEN_PORT: "${LISTEN_PORT:-19132}"
+      BACKEND_IP: "${BACKEND_IP:?Define BACKEND_IP with the Bedrock server LAN IPv4 address}"
+      BACKEND_PORT: "${BACKEND_PORT:-19132}"
+      MOTD: "${MOTD:-BedrockParty}"
+      SUB_MOTD: "${SUB_MOTD:-BedrockParty}"
+      PROTOCOL: "${PROTOCOL:-1001}"
+      VERSION: "${VERSION:-1.26.32}"
+      PLAYERS: "${PLAYERS:-0}"
+      MAX_PLAYERS: "${MAX_PLAYERS:-10}"
+      GAMEMODE: "${GAMEMODE:-Survival}"
+      GAMEMODE_NUM: "${GAMEMODE_NUM:-1}"
+      IPV6_PORT: "${IPV6_PORT:-19133}"
+      EXTRA_FIELDS: "${EXTRA_FIELDS:-0;1;0}"
+      SERVER_GUID: "${SERVER_GUID:?Define a stable numeric SERVER_GUID}"
+      SESSION_TIMEOUT: "${SESSION_TIMEOUT:-60}"
+      LOG_DISCOVERY: "${LOG_DISCOVERY:-false}"
+    healthcheck:
+      test: ["CMD-SHELL", "python /app/healthcheck-raknet.py --target 127.0.0.1 --port $${LISTEN_PORT} --timeout 1"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+  nethernet-bridge:
+    build:
+      context: ./proxy-bedrock
+      dockerfile: Dockerfile.nethernet
+    image: bedrockparty-nethernet-bridge:local
+    restart: unless-stopped
+    init: true
+    network_mode: host
+    read_only: true
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    environment:
+      NETHERNET_LISTEN_IP: "0.0.0.0"
+      NETHERNET_PORT: "${NETHERNET_PORT:-7551}"
+      NETHERNET_SERVER_ID: "${NETHERNET_SERVER_ID:?Define the same stable numeric ID used by SERVER_GUID}"
+      NETHERNET_SERVER_NAME: "${NETHERNET_SERVER_NAME:-BedrockParty}"
+      NETHERNET_LEVEL_NAME: "${NETHERNET_LEVEL_NAME:-BedrockParty}"
+      NETHERNET_GAME_TYPE: "${NETHERNET_GAME_TYPE:-0}"
+      PLAYERS: "${PLAYERS:-0}"
+      MAX_PLAYERS: "${MAX_PLAYERS:-10}"
+      NETHERNET_PUBLIC_IP: "${NETHERNET_PUBLIC_IP:-}"
+      NETHERNET_ICE_PORT: "${NETHERNET_ICE_PORT:-50000}"
+      BACKEND_IP: "${BACKEND_IP:?Define BACKEND_IP with the Bedrock server LAN IPv4 address}"
+      BACKEND_PORT: "${BACKEND_PORT:-19132}"
+      LOG_LEVEL: "${LOG_LEVEL:-INFO}"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

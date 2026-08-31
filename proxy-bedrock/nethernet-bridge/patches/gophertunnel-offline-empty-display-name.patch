@@ -1,0 +1,9 @@
+--- a/minecraft/protocol/login/data.go
++++ b/minecraft/protocol/login/data.go
+@@ -71,0 +72,6 @@ func (data IdentityData) Validate() error {
++	// Nintendo Switch may send an empty display name in a self-signed LAN login.
++	// The BedrockParty listener only accepts these logins on the trusted LAN and
++	// assigns a deterministic local name before dialing the upstream BDS.
++	if data.XUID == "" && len(data.DisplayName) == 0 {
++		return nil
++	}
