@@ -38,7 +38,13 @@ Never use `git push --all` and never publish the private-history bundle.
 
 ## First release
 
-After validating deployment from a clean clone, create a semantic-version tag and release notes that state:
+After validating deployment from a clean clone, create a compatibility tag using:
+
+```text
+bedrock-<Minecraft version>-r<BedrockParty revision>
+```
+
+Example: `bedrock-1.26.45-r1`. Increment `r2`, `r3`, and so on for project-only fixes that retain the same Bedrock compatibility target. Release notes must state:
 
 - supported Minecraft Bedrock version and protocol;
 - validated operating systems and physical devices;
@@ -46,3 +52,5 @@ After validating deployment from a clean clone, create a semantic-version tag an
 - required BDS `server.properties` settings.
 - legitimate-copy and platform-terms requirements;
 - links to the legal guidance and third-party notices.
+
+The initial release process publishes GitHub source archives only. Do not imply that container images are available unless a separate registry publication workflow has completed successfully.

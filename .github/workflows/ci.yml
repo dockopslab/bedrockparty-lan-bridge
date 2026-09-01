@@ -27,3 +27,8 @@ jobs:
 
       - name: Build production images
         run: docker compose -f compose.win.yml build
+
+      - name: Verify packaged license notices
+        run: |
+          docker run --rm --entrypoint sh bedrockparty-raknet-proxy:local -c 'test -f /usr/share/licenses/bedrockparty/LICENSE'
+          docker run --rm --entrypoint sh bedrockparty-nethernet-bridge:local -c 'test -f /usr/share/licenses/bedrockparty/LICENSE && test -f /usr/share/licenses/bedrockparty/third-party/github.com/coreos/go-oidc/v3/oidc/NOTICE'

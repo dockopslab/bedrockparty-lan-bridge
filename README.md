@@ -59,6 +59,14 @@ The `proxy` service answers RakNet discovery and transparently relays Android da
 
 Compatibility applies to the tested versions only. After updating Minecraft, the BDS, or gophertunnel, repeat discovery, join, gameplay, and split-screen validation.
 
+## Releases and versioning
+
+Source releases use `bedrock-<Minecraft version>-r<project revision>`. The Bedrock version states the compatibility target; the revision permits BedrockParty fixes without inventing a new game version.
+
+The current release is [`bedrock-1.26.45-r1`](https://github.com/dockopslab/bedrockparty-lan-bridge/releases/tag/bedrock-1.26.45-r1), targeting protocol `2169`. Releases contain source archives only; deployment builds the images locally with Docker Compose.
+
+See the [release changelog](CHANGELOG.md) for validated scenarios, limitations, and upgrade notes. A new Bedrock version is not declared compatible until Compose validation, tests, image builds, and applicable physical-device checks have completed.
+
 ## Requirements
 
 - A Bedrock Dedicated Server reachable on the LAN.
@@ -286,6 +294,7 @@ The bridge currently generates a NetherNet identity at startup. A console may re
 ## Project documentation
 
 - [Project context](doc/PROJECT_CONTEXT.md)
+- [Release changelog](CHANGELOG.md)
 - [Architecture](doc/ARCHITECTURE.md)
 - [Setup and operations](doc/SETUP.md)
 - [Technical decisions](doc/DECISIONS.md)

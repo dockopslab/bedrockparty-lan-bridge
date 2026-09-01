@@ -23,6 +23,7 @@ The maintainer developed the project in collaboration with AI agents. `CHANGELOG
 - `compose.win.yml`: Windows Docker Desktop alternative.
 - `.env.example`: sanitized configuration template.
 - `.github/workflows/ci.yml`: tests, Compose validation, and image builds.
+- `CHANGELOG.md`: public release history and compatibility contract.
 - `LICENSE`, `LEGAL.md`, `THIRD_PARTY_NOTICES.md`, `CONTRIBUTING.md`, and `SECURITY.md`: public project policies and compliance material.
 - `proxy-bedrock/third_party_licenses/`: exact dependency license and NOTICE files packaged in the NetherNet image.
 - `support/`: diagnostics, tests, and legacy reference outside production.
@@ -55,6 +56,8 @@ The tested Switch had an active Nintendo Switch Online subscription. BedrockPart
 Switch may omit the main player's `IdentityData.DisplayName` while retaining the local name in `ClientData.ThirdPartyName`. The deployed fallback validates and forwards that local name only for an offline identity without XUID. Logs confirmed the expected local name and a subsequent `Bedrock session bridged`.
 
 Linux/Docker Engine with host networking is the physically validated production deployment. Windows/Docker Desktop remains a validated alternative.
+
+Public source releases use `bedrock-<Minecraft version>-r<project revision>`. The first compatibility release is `bedrock-1.26.45-r1`; no prebuilt images are published by the current workflow.
 
 ## Known limitations
 

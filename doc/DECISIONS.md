@@ -1,5 +1,23 @@
 # Technical decisions
 
+## 2026-09-01 - Version releases by Bedrock compatibility target
+
+### Context
+
+The bridge is protocol-sensitive and may require a new gophertunnel version or patch adjustment after a Bedrock update. A project-only correction may also be needed without a new Minecraft release.
+
+### Decision
+
+Use immutable source-release tags formatted as `bedrock-<Minecraft version>-r<project revision>`, beginning with `bedrock-1.26.45-r1` for protocol `2169`.
+
+### Rationale
+
+The tag identifies the tested game/BDS target while the independent revision avoids conflating BedrockParty fixes with official Minecraft versions.
+
+### Consequences
+
+Every compatibility release must document the protocol, dependency versions, tested devices, deployment environments, and limitations. The current release process publishes source archives, not container images.
+
 ## 2026-08-31 - Present local identity support as interoperability, not entitlement avoidance
 
 ### Context

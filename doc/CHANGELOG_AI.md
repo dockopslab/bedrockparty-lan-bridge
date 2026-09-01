@@ -1,5 +1,32 @@
 # AI-assisted change log
 
+## 2026-09-01 - Prepare the first compatibility release
+
+### Changes
+
+- Added the public `CHANGELOG.md` and documented `bedrock-<version>-r<revision>` release identifiers.
+- Prepared `bedrock-1.26.45-r1` release notes in English for protocol `2169`.
+- Clarified that the initial GitHub release contains source archives and does not publish container images.
+- Extended CI to verify that the BedrockParty license and required third-party NOTICE file are present inside the built images.
+- Updated project context, publishing guidance, README, decisions, and TODO for repeatable future releases.
+
+### Files changed
+
+- `CHANGELOG.md`, `README.md`, `.github/workflows/ci.yml`
+- `doc/PROJECT_CONTEXT.md`, `doc/PUBLISHING.md`, `doc/DECISIONS.md`, `doc/TODO.md`
+
+### Validation
+
+- `git diff --check`: passed.
+- Markdown-link validation: passed.
+- Linux and Windows Compose validation with `.env.example`: passed.
+- Python unit tests: 2 passed.
+- GitHub Actions build and packaged-license verification: required before creating the release tag.
+
+### Remaining
+
+- Publish the immutable tag and GitHub Release after the updated CI succeeds.
+
 ## 2026-09-01 - Add publication compliance material
 
 ### Changes
