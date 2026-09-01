@@ -1,5 +1,32 @@
 # AI-assisted change log
 
+## 2026-09-01 - Automate validated source releases
+
+### Changes
+
+- Converted CI into a reusable workflow while retaining branch-push and pull-request validation.
+- Added a tag-triggered release workflow for `bedrock-*-r*` tags.
+- Required the release job to wait for Compose validation, tests, image builds, and packaged-license checks.
+- Automated extraction of the matching English section from `CHANGELOG.md` into the GitHub Release notes.
+- Kept release artifacts source-only; temporary Docker images are neither uploaded nor retained.
+
+### Files changed
+
+- `.github/workflows/ci.yml`, `.github/workflows/release.yml`
+- `README.md`, `doc/PROJECT_CONTEXT.md`, `doc/PUBLISHING.md`, `doc/DECISIONS.md`
+
+### Validation
+
+- `git diff --check`: passed.
+- Linux and Windows Compose validation: passed.
+- Python unit tests: 2 passed.
+- Workflow structure reviewed locally; GitHub Actions parsing and execution remain required.
+- Tag-triggered end-to-end publication: pending the first release tag.
+
+### Remaining
+
+- Commit and publish the workflow, then push `bedrock-1.26.45-r1` and verify the release job.
+
 ## 2026-09-01 - Prepare the first compatibility release
 
 ### Changes

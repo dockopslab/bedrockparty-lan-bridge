@@ -54,3 +54,18 @@ Example: `bedrock-1.26.45-r1`. Increment `r2`, `r3`, and so on for project-only 
 - links to the legal guidance and third-party notices.
 
 The initial release process publishes GitHub source archives only. Do not imply that container images are available unless a separate registry publication workflow has completed successfully.
+
+## Automated release publication
+
+`.github/workflows/release.yml` publishes a GitHub Release when a tag matching `bedrock-*-r*` is pushed. It calls the reusable CI workflow first, so Compose validation, tests, image builds, and packaged-license checks must all succeed before publication.
+
+The release job extracts the matching section from `CHANGELOG.md`, uses it as the English release notes, and lets GitHub attach its standard source archives. It does not upload or retain the temporary Docker images.
+
+Create and publish an annotated tag only after the target commit is ready:
+
+```bash
+git tag -a bedrock-1.26.45-r1 -m "BedrockParty for Bedrock 1.26.45 - revision 1"
+git push origin bedrock-1.26.45-r1
+```
+
+Never reuse or move a published release tag. Corrections for the same Bedrock target use the next revision, such as `r2`.

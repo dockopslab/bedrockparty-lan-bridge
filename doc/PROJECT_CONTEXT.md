@@ -23,6 +23,7 @@ The maintainer developed the project in collaboration with AI agents. `CHANGELOG
 - `compose.win.yml`: Windows Docker Desktop alternative.
 - `.env.example`: sanitized configuration template.
 - `.github/workflows/ci.yml`: tests, Compose validation, and image builds.
+- `.github/workflows/release.yml`: tag-triggered validation and GitHub source-release publication.
 - `CHANGELOG.md`: public release history and compatibility contract.
 - `LICENSE`, `LEGAL.md`, `THIRD_PARTY_NOTICES.md`, `CONTRIBUTING.md`, and `SECURITY.md`: public project policies and compliance material.
 - `proxy-bedrock/third_party_licenses/`: exact dependency license and NOTICE files packaged in the NetherNet image.
@@ -57,7 +58,7 @@ Switch may omit the main player's `IdentityData.DisplayName` while retaining the
 
 Linux/Docker Engine with host networking is the physically validated production deployment. Windows/Docker Desktop remains a validated alternative.
 
-Public source releases use `bedrock-<Minecraft version>-r<project revision>`. The first compatibility release is `bedrock-1.26.45-r1`; no prebuilt images are published by the current workflow.
+Public source releases use `bedrock-<Minecraft version>-r<project revision>`. The release workflow calls reusable CI and publishes the matching `CHANGELOG.md` section after validation. The first compatibility release is `bedrock-1.26.45-r1`; no prebuilt images are published.
 
 ## Known limitations
 

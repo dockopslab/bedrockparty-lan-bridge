@@ -63,7 +63,7 @@ Compatibility applies to the tested versions only. After updating Minecraft, the
 
 Source releases use `bedrock-<Minecraft version>-r<project revision>`. The Bedrock version states the compatibility target; the revision permits BedrockParty fixes without inventing a new game version.
 
-The current release is [`bedrock-1.26.45-r1`](https://github.com/dockopslab/bedrockparty-lan-bridge/releases/tag/bedrock-1.26.45-r1), targeting protocol `2169`. Releases contain source archives only; deployment builds the images locally with Docker Compose.
+The current release is [`bedrock-1.26.45-r1`](https://github.com/dockopslab/bedrockparty-lan-bridge/releases/tag/bedrock-1.26.45-r1), targeting protocol `2169`. A tag-triggered workflow validates and publishes each GitHub Release. Releases contain source archives only; deployment builds the images locally with Docker Compose.
 
 See the [release changelog](CHANGELOG.md) for validated scenarios, limitations, and upgrade notes. A new Bedrock version is not declared compatible until Compose validation, tests, image builds, and applicable physical-device checks have completed.
 

@@ -1,5 +1,23 @@
 # Technical decisions
 
+## 2026-09-01 - Publish source releases from validated tags
+
+### Context
+
+Creating releases manually would separate publication from the checks that establish build and packaging quality.
+
+### Decision
+
+Make CI reusable and trigger a dedicated release workflow from immutable `bedrock-*-r*` tags. The release job depends on CI success, extracts the matching English `CHANGELOG.md` section, and creates the GitHub Release with the repository token.
+
+### Rationale
+
+The tag, validation result, release notes, and source archives remain reproducible and linked to one commit without handling personal credentials or storing Docker images.
+
+### Consequences
+
+Tag pushes are the publication authority and require `contents: write` only in the release job. A malformed tag or missing changelog section fails safely before a release is created.
+
 ## 2026-09-01 - Version releases by Bedrock compatibility target
 
 ### Context
