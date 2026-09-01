@@ -20,12 +20,13 @@
 - `git diff --check`: passed.
 - Linux and Windows Compose validation: passed.
 - Python unit tests: 2 passed.
-- Workflow structure reviewed locally; GitHub Actions parsing and execution remain required.
-- Tag-triggered end-to-end publication: pending the first release tag.
+- GitHub Actions accepted the reusable workflow and completed the final branch CI successfully.
+- Tag-triggered `Release source` run: reusable validation passed and `Publish GitHub Release` completed successfully.
+- Public release metadata: `bedrock-1.26.45-r1`, published, not a draft, and not a prerelease.
 
 ### Remaining
 
-- Commit and publish the workflow, then push `bedrock-1.26.45-r1` and verify the release job.
+- Nothing pending for `bedrock-1.26.45-r1`; future Bedrock targets must repeat the documented compatibility validation.
 
 ## 2026-09-01 - Prepare the first compatibility release
 

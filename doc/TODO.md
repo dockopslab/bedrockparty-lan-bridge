@@ -33,6 +33,7 @@
 
 ## Recently completed
 
+- [x] Publish `bedrock-1.26.45-r1` as the first validated, English-documented GitHub source release through CI.
 - [x] Confirm GitHub Actions builds both images and verifies the packaged BedrockParty license and third-party NOTICE files.
 - [x] Define the `bedrock-<version>-r<revision>` release scheme and prepare the English `bedrock-1.26.45-r1` notes.
 - [x] Add the official Minecraft independence disclaimer, responsible-use conditions, and trademark notices.
