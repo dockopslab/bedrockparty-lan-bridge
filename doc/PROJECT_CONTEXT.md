@@ -23,7 +23,8 @@ The maintainer developed the project in collaboration with AI agents. `CHANGELOG
 - `compose.win.yml`: Windows Docker Desktop alternative.
 - `.env.example`: sanitized configuration template.
 - `.github/workflows/ci.yml`: tests, Compose validation, and image builds.
-- `LICENSE`, `CONTRIBUTING.md`, and `SECURITY.md`: public project policies.
+- `LICENSE`, `LEGAL.md`, `THIRD_PARTY_NOTICES.md`, `CONTRIBUTING.md`, and `SECURITY.md`: public project policies and compliance material.
+- `proxy-bedrock/third_party_licenses/`: exact dependency license and NOTICE files packaged in the NetherNet image.
 - `support/`: diagnostics, tests, and legacy reference outside production.
 - `doc/`: persistent technical memory.
 
@@ -49,7 +50,7 @@ On 2026-08-26, Switch `1.26.44`/protocol `2168` completed discovery, join, gamep
 
 On 2026-08-31, BDS, Switch, and Android were updated to `1.26.45`/protocol `2169`. Android continued working because its relay is transparent. Switch initially failed because `gophertunnel v1.59.0` expected protocol `2168`. Updating to `v1.61.0` restored discovery, login, gameplay, split-screen play, and mixed cooperative play with multiple Android participants.
 
-The tested Switch had an active Nintendo Switch Online subscription. The working path is LAN-only and uses `online-mode=false`; this test does not establish the Nintendo subscription as a requirement.
+The tested Switch had an active Nintendo Switch Online subscription. BedrockParty neither determines nor changes account, entitlement, or subscription requirements. The validated path is LAN-only and uses `online-mode=false` for BDS identity handling; all players must still own a genuine copy and comply with the applicable platform terms.
 
 Switch may omit the main player's `IdentityData.DisplayName` while retaining the local name in `ClientData.ThirdPartyName`. The deployed fallback validates and forwards that local name only for an offline identity without XUID. Logs confirmed the expected local name and a subsequent `Bedrock session bridged`.
 

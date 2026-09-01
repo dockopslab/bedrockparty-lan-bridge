@@ -30,8 +30,10 @@ Thank you for helping improve BedrockParty. Open an issue before starting a subs
 - Use Conventional Commits.
 - Add tests when behavior changes.
 - Update `README.md` and `doc/` when configuration, architecture, compatibility, or risks change.
+- Update `THIRD_PARTY_NOTICES.md` and regenerate `proxy-bedrock/third_party_licenses/` whenever a Go dependency or base image changes.
 - Never include `.env`, packet captures, player names, UUIDs, XUIDs, real network addresses, or credentials.
 - State which Minecraft Bedrock, BDS, operating-system, and physical-device versions were tested.
+- Do not describe contributions as bypassing ownership, accounts, subscriptions, entitlements, access controls, or platform terms.
 
 AI-assisted contributions are welcome when the contributor reviews the result, runs the applicable validation, and accepts responsibility for the change. Disclose material use of AI agents in the pull request and update `doc/CHANGELOG_AI.md` when appropriate.
 

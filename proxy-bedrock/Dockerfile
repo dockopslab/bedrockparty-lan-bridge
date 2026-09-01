@@ -6,6 +6,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 COPY bedrock-lan-proxy.py /app/bedrock-lan-proxy.py
 COPY scripts/healthcheck-raknet.py /app/healthcheck-raknet.py
+COPY licenses/BedrockParty-LICENSE /usr/share/licenses/bedrockparty/LICENSE
 
 USER 65532:65532
 

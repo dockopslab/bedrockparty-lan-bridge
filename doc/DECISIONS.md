@@ -1,5 +1,23 @@
 # Technical decisions
 
+## 2026-08-31 - Present local identity support as interoperability, not entitlement avoidance
+
+### Context
+
+The tested bridge uses BDS `online-mode=false`, and earlier documentation described the outcome mainly as play without Microsoft/Xbox accounts. That wording could incorrectly suggest that the project grants access or removes third-party licensing and platform obligations.
+
+### Decision
+
+Describe `online-mode=false` strictly as a trusted-LAN BDS identity setting. Require genuine game copies and compliance with all applicable account, subscription, entitlement, and platform terms. Add a prominent Minecraft independence disclaimer, trademark notices, responsible-use guidance, and a generated third-party license inventory.
+
+### Rationale
+
+The proxy performs protocol interoperability and local relaying; it does not provide software licenses, credentials, subscriptions, entitlements, or authorization to use third-party services.
+
+### Consequences
+
+Documentation must not market the project as an authentication or subscription bypass. Dependency and container-image licensing must be re-audited before each distributable release, and legal certainty still requires professional review.
+
 ## 2026-08-31 - Prepare a sanitized MIT-licensed initial publication
 
 ### Context

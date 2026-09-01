@@ -2,6 +2,10 @@
 
 BedrockParty publishes a Bedrock Dedicated Server (BDS) as a LAN world for Android and Nintendo Switch. BDS means *Bedrock Dedicated Server*, the standalone Minecraft Bedrock server. The production deployment uses Docker Engine on Linux; Docker Desktop on Windows is a validated alternative.
 
+> **NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.**
+
+This independent interoperability project is intended only for lawful use with genuine, lawfully acquired game copies and properly licensed hardware, software, and services. See [`../LEGAL.md`](../LEGAL.md).
+
 The Compose files and `.env.example` live at the repository root. Run all commands from that directory. The complete user guide is [`../README.md`](../README.md).
 
 ## Production architecture
@@ -21,8 +25,8 @@ This directory contains only runtime code, Dockerfiles, the health check, and fi
 - Nintendo Switch discovers the world, completes NetherNet/WebRTC, joins, and plays.
 - Two local players can play simultaneously in split-screen mode on one Switch.
 - Cooperative play was validated with multiple Android devices and both local Switch players.
-- The tested Switch had an active Nintendo Switch Online subscription; this does not establish the subscription as a LAN proxy requirement.
-- The validated LAN scenario does not require Microsoft/Xbox accounts because the BDS uses `online-mode=false`.
+- The tested Switch had an active Nintendo Switch Online subscription. The bridge does not determine or change platform entitlement, account, or subscription requirements.
+- The validated LAN scenario used `online-mode=false`, so the BDS did not verify Microsoft/Xbox identities through the bridge.
 - Linux/Docker Engine with host networking is the physically validated production deployment.
 - Docker Desktop on Windows is a validated alternative with LAN-scoped UDP ports.
 - Full validation covers `1.26.44-Switch`/protocol `2168` and Switch, Android, and BDS `1.26.45`/protocol `2169`.
@@ -35,7 +39,7 @@ This directory contains only runtime code, Dockerfiles, the health check, and fi
 - Proxy, clients, and BDS on the same trusted LAN.
 - The BDS reachable through UDP from the proxy host.
 - Free `19132`, `7551`, and `50000/udp` ports.
-- `online-mode=false` on the BDS for play without Microsoft/Xbox accounts.
+- `online-mode=false` on the trusted-LAN BDS for the currently supported local identity flow.
 
 ## Initial configuration
 
@@ -101,14 +105,14 @@ The firewall rule covers both Public and Private profiles but accepts traffic on
 
 ## BDS authentication modes
 
-For trusted-LAN play without Microsoft/Xbox accounts, keep LAN play enabled and configure:
+For the currently supported trusted-LAN identity flow, keep LAN play enabled and configure:
 
 ```properties
 online-mode=false
 allow-list=false
 ```
 
-Restart the BDS. Offline mode permits name impersonation, so neither the BDS nor proxy may be exposed to the Internet.
+Restart the BDS. This setting affects BDS identity verification only; it does not grant a game license or waive platform, account, subscription, or entitlement requirements. Every player must use a genuine, lawfully acquired copy of Minecraft. Offline mode permits name impersonation, so neither the BDS nor proxy may be exposed to the Internet.
 
 A directly accessed BDS may use `online-mode=true` when all players authenticate. The current bridge terminates NetherNet and originates a new offline RakNet session. It has no per-player Xbox `TokenSource`, so `online-mode=true` is not supported through this bridge.
 

@@ -2,14 +2,18 @@
 
 BedrockParty publishes a **Bedrock Dedicated Server (BDS)** as a LAN world for Android and Nintendo Switch. BDS means *Bedrock Dedicated Server*: the standalone Minecraft Bedrock server application, which runs without a player hosting the world from the game.
 
+> **NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.**
+
+BedrockParty is an independent interoperability project and is not affiliated with Mojang, Microsoft, or Nintendo. It is intended only for lawful use with genuine, lawfully acquired copies of Minecraft Bedrock and properly licensed hardware, software, and services. Read [Legal and responsible use](LEGAL.md) before deploying or redistributing it.
+
 The project combines a transparent RakNet relay with a NetherNet/WebRTC bridge. The production deployment is `compose.yml` on Linux with Docker Engine and host networking. `compose.win.yml` provides a validated Docker Desktop alternative for Windows.
 
 ## Validated play scenario
 
 The most complete physical test used **Minecraft Bedrock 1.26.45, protocol 2169** on the BDS, Nintendo Switch, and Android devices:
 
-- Nintendo Switch with an active Nintendo Switch Online subscription. This confirms compatibility in that environment; it does not establish the subscription as a proxy requirement.
-- LAN-only play with `online-mode=false` on the BDS, without requiring Microsoft/Xbox accounts.
+- Nintendo Switch with an active Nintendo Switch Online subscription. BedrockParty neither determines nor changes platform entitlement, account, or subscription requirements.
+- LAN-only play with BDS identity verification disabled through `online-mode=false`; the bridge did not use Microsoft/Xbox authentication in this test.
 - Two local split-screen players on the same Nintendo Switch.
 - Simultaneous cooperative play with multiple Android participants and both local Switch players in the same world.
 
@@ -22,7 +26,7 @@ For Android compatibility, the RakNet relay still advertises the historical `1.2
 - Serves Nintendo Switch through NetherNet on `UDP/7551` and WebRTC/ICE on `UDP/50000`.
 - Converts a Switch NetherNet session into a Bedrock/RakNet connection to the BDS.
 - Preserves Bedrock subclient headers required for split-screen play.
-- Supports trusted-LAN play without Microsoft/Xbox accounts when the BDS uses `online-mode=false`.
+- Supports a trusted-LAN BDS configured with `online-mode=false`; this changes local identity verification only and does not waive game ownership or platform requirements.
 - Requires no alternate DNS, featured-server replacement, or Internet exposure.
 
 ## Architecture
@@ -81,7 +85,7 @@ Runtime files are at the repository root so deployment does not require changing
 
 ## Configure the BDS
 
-### LAN play without Microsoft/Xbox accounts
+### Trusted-LAN BDS identity mode
 
 Keep LAN play enabled and set the BDS `server.properties` file to:
 
@@ -90,7 +94,7 @@ online-mode=false
 allow-list=false
 ```
 
-Restart the BDS after editing the file. `online-mode=false` disables online identity verification, not LAN multiplayer. Because names are no longer verified, the BDS and proxy must remain on a trusted LAN and must never be exposed to the Internet.
+Restart the BDS after editing the file. `online-mode=false` disables BDS online identity verification, not LAN multiplayer. It does not grant a Minecraft license or bypass any platform, account, subscription, or entitlement requirement. Every player must use a genuine, lawfully acquired copy of Minecraft and comply with the applicable terms. Because names are no longer verified, the BDS and proxy must remain on a trusted LAN and must never be exposed to the Internet.
 
 ### Play with Microsoft/Xbox accounts
 
@@ -295,6 +299,8 @@ The bridge currently generates a NetherNet identity at startup. A console may re
 - [Support material](support/README.md)
 - [Contributing](CONTRIBUTING.md)
 - [Public security policy](SECURITY.md)
+- [Legal and responsible use](LEGAL.md)
+- [Third-party notices](THIRD_PARTY_NOTICES.md)
 
 ## AI development transparency
 
@@ -304,7 +310,7 @@ AI-assisted work is recorded in [`doc/CHANGELOG_AI.md`](doc/CHANGELOG_AI.md). AI
 
 ## License
 
-BedrockParty is distributed under the [MIT License](LICENSE).
+Original BedrockParty code is distributed under the [MIT License](LICENSE). Third-party components retain their own licenses; see [Third-party notices](THIRD_PARTY_NOTICES.md). Minecraft, Microsoft, Xbox, Mojang, Nintendo, Nintendo Switch, and related marks belong to their respective owners and are used only to describe compatibility. See [Legal and responsible use](LEGAL.md).
 
 ## Project status
 

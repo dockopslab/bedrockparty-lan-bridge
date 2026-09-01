@@ -13,3 +13,5 @@ Do not publicly attach packet captures, `.env` files, player names, UUIDs, XUIDs
 ## Trust boundary
 
 Unauthenticated LAN mode permits name impersonation. The proxy and BDS must remain on a trusted local network, and their UDP ports must never be exposed to the Internet. See [`doc/SECURITY.md`](doc/SECURITY.md) for technical controls.
+
+This local identity mode does not grant a Minecraft license or waive account, subscription, entitlement, or platform requirements. Security reports must not include techniques intended to circumvent third-party access controls. See [`LEGAL.md`](LEGAL.md).

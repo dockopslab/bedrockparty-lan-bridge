@@ -2,6 +2,7 @@
 
 ## High priority
 
+- [ ] Build both production images with Docker available and verify `/usr/share/licenses/bedrockparty/` before tagging a release.
 - [ ] Confirm visually that the main Switch player displays the local name already forwarded through `ThirdPartyName`.
 - [ ] Verify that BDS `online-mode=false` persists after restarts and that `allow-list` does not block offline identities.
 - [ ] Confirm that the unauthenticated BDS is not Internet-accessible and remains restricted to the LAN.
@@ -14,6 +15,8 @@
 ## Low priority
 
 - [ ] Create the public remote and validate deployment from a clean clone before tagging the first release.
+- [ ] Obtain professional legal review before claiming legal certainty, monetizing, or marketing the project as a consumer service.
+- [ ] Re-run dependency and final-image license scans whenever Go dependencies or container base images change.
 - [ ] Evaluate IPv6/19133 only if new captures demonstrate a requirement.
 - [ ] Pin base images by digest after defining an update policy.
 - [ ] Evaluate per-player upstream authentication if online-mode BDS support is required.
@@ -31,6 +34,9 @@
 
 ## Recently completed
 
+- [x] Add the official Minecraft independence disclaimer, responsible-use conditions, and trademark notices.
+- [x] Inventory Go dependency licenses and package exact license/NOTICE files in the runtime image.
+- [x] Clarify that local BDS identity settings do not waive ownership, account, entitlement, subscription, or platform obligations.
 - [x] Select and add the MIT License.
 - [x] Sanitize real IP addresses, identifiers, names, and local paths.
 - [x] Add CI, contribution guidance, security policy, and publishing procedure.

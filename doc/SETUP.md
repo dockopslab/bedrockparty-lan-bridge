@@ -4,7 +4,7 @@ The main guide is [`../README.md`](../README.md). BDS means *Bedrock Dedicated S
 
 Physical compatibility was validated with Switch/BDS `1.26.44`/protocol `2168` and with Switch, Android, and BDS `1.26.45`/protocol `2169`. The current bridge uses `gophertunnel v1.61.0`. Discovery, login, gameplay, split-screen play, and mixed cooperative play are validated.
 
-The tested Switch had an active Nintendo Switch Online subscription, but the connection is LAN-only and does not require Microsoft/Xbox accounts with `online-mode=false`. The test does not establish the Nintendo subscription as mandatory.
+The tested Switch had an active Nintendo Switch Online subscription. BedrockParty does not determine or alter account, entitlement, or subscription requirements. The validated bridge path used BDS `online-mode=false`, so the BDS did not verify Microsoft/Xbox identities through that path. Every player must nevertheless use a genuine, lawfully acquired copy of Minecraft and comply with all applicable platform terms.
 
 ## Common ports and requirements
 
@@ -14,7 +14,7 @@ The tested Switch had an active Nintendo Switch Online subscription, but the con
 - `50000/udp`: multiplexed NetherNet ICE/WebRTC.
 - Every port restricted to the LAN and never exposed to the Internet.
 
-## BDS requirements for account-free LAN play
+## BDS requirements for the trusted-LAN identity flow
 
 Keep LAN play enabled and set:
 
@@ -23,7 +23,7 @@ online-mode=false
 allow-list=false
 ```
 
-Restart the BDS. Offline mode disables Microsoft/Xbox identity verification, not LAN multiplayer. It permits name impersonation, so the proxy and BDS must remain on a trusted LAN.
+Restart the BDS. Offline mode disables BDS identity verification, not LAN multiplayer. It does not provide a license, entitlement, account, or subscription and must not be used to bypass any such requirement. It permits name impersonation, so the proxy and BDS must remain on a trusted LAN.
 
 `allow-list=false` prevents an Xbox-identity allow list from blocking offline clients. If access control is required, design one suitable for local identities before re-enabling it.
 

@@ -11,7 +11,10 @@ The public tree is prepared on `main` as one sanitized initial commit. The exper
 3. Search for real addresses, identifiers, names, routes, and credentials.
 4. Run Python tests, validate both Compose files, and build both images.
 5. Verify that the README states the supported Bedrock version and Linux production deployment.
-6. Confirm that no private remote is configured.
+6. Confirm that the prominent independence disclaimer, `LEGAL.md`, and trademark notices are present.
+7. Regenerate the Go license inventory, compare it with `THIRD_PARTY_NOTICES.md`, and confirm the exact license files are present in the NetherNet image.
+8. Scan the final images for package licenses and vulnerabilities, including Python and Alpine components.
+9. Confirm that no private remote is configured.
 
 ## Create the public repository
 
@@ -41,3 +44,5 @@ After validating deployment from a clean clone, create a semantic-version tag an
 - validated operating systems and physical devices;
 - LAN authentication and TOFU limitations;
 - required BDS `server.properties` settings.
+- legitimate-copy and platform-terms requirements;
+- links to the legal guidance and third-party notices.

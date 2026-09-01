@@ -168,7 +168,7 @@ Stable IDs use `ERR-<AREA>-<NUMBER>`.
 8. On Docker Desktop, confirm ICE advertises the host LAN address rather than `172.x`.
 9. On Linux host networking, keep address replacement empty.
 10. Change one variable at a time and record the result.
-11. For account-free clients, verify BDS `online-mode=false` and prevent Internet exposure.
+11. For the local unauthenticated identity flow, verify BDS `online-mode=false`, require legitimate game copies, and prevent Internet exposure.
 12. Always test split-screen subclient headers, not only the main player.
 13. After a Minecraft update, compare BDS protocol with gophertunnel support first.
 14. Use `ThirdPartyName` only as a validated no-XUID fallback.

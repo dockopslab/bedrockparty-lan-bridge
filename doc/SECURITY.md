@@ -26,8 +26,9 @@ The proxy exposes RakNet and NetherNet/WebRTC only on a private LAN and relays t
 - On Linux host networking, leave `NETHERNET_PUBLIC_IP` empty unless real NAT exists.
 - Treat names, UUIDs, XUIDs, and device identifiers as private information.
 - Rebuild images regularly to receive base-image fixes.
-- For LAN play without Microsoft/Xbox accounts, keep LAN play enabled and use `online-mode=false`. This permits name impersonation and is acceptable only on a trusted LAN.
+- For the supported local identity flow, keep LAN play enabled and use `online-mode=false`. This setting affects BDS identity verification only; it grants no license or entitlement and permits name impersonation, so it is acceptable only on a trusted LAN.
 - A directly accessed BDS may use `online-mode=true` for authenticated players. The current bridge has no per-player upstream Microsoft/Xbox authentication and must not be used with `online-mode=true`.
+- Do not present or use the proxy as a means to evade game ownership, accounts, subscriptions, access controls, or platform terms.
 - The gophertunnel patch accepts an empty `DisplayName` only when XUID is also empty.
 - `ClientData.ThirdPartyName` is unsigned. The bridge may use it only for an offline identity without XUID and only after offline-name validation.
 

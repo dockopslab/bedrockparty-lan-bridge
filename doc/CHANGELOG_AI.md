@@ -1,5 +1,36 @@
 # AI-assisted change log
 
+## 2026-09-01 - Add publication compliance material
+
+### Changes
+
+- Added the prominent Minecraft independence disclaimer, responsible-use conditions, and trademark notices.
+- Clarified that BDS `online-mode=false` changes local identity verification only and does not waive ownership, platform, account, subscription, or entitlement requirements.
+- Added a dependency inventory generated from the compiled Go package with `go-licenses v2.0.1`.
+- Added exact third-party license and NOTICE files and packaged them in the NetherNet runtime image.
+- Packaged the BedrockParty MIT license in both runtime images.
+- Reworded compatibility and setup documentation so it does not describe the project as bypassing authentication or subscriptions.
+
+### Files changed
+
+- `LEGAL.md`, `THIRD_PARTY_NOTICES.md`, `README.md`, `SECURITY.md`
+- `proxy-bedrock/README.md`, both production Dockerfiles, and packaged license material
+- Project context, setup, security, decisions, publishing checklist, TODO, and error-history documentation
+
+### Validation
+
+- Dependency license report generated from the compiled Go package: completed; 38 modules inventoried and 41 exact license/NOTICE files saved.
+- Repository-wide terminology review and Markdown-link validation: passed.
+- `docker compose --env-file .env.example config --quiet` for Linux and Windows: passed.
+- `python -m unittest discover -s support/tests -v`: 2 tests passed.
+- Production image build: not executed because the Docker Desktop Linux engine was not running; no successful build is claimed for this revision.
+
+### Remaining
+
+- Obtain professional legal review before claiming legal certainty or monetizing the project.
+- Re-audit dependencies and final container images whenever versions or base images change.
+- Build both production images when Docker is available and verify the packaged license paths before tagging a release.
+
 ## 2026-08-31 - Convert all public documentation to English
 
 ### Changes
@@ -44,7 +75,7 @@
 - Added contribution guidance, a public security policy, CI, and a publishing procedure.
 - Consolidated experimental commits into one recoverable initial public commit.
 - Documented isolated ICE loss and successful reconnection as `ERR-NETH-005`.
-- Documented the complete Bedrock `1.26.45`/protocol `2169` physical scenario: active Nintendo Switch Online subscription, LAN without Microsoft/Xbox accounts, two local Switch players, and mixed Android/Switch cooperative play.
+- Documented the complete Bedrock `1.26.45`/protocol `2169` physical scenario: an active Nintendo Switch Online subscription, local BDS identity mode, two local Switch players, and mixed Android/Switch cooperative play.
 - Declared Linux/Docker Engine host networking as the validated production deployment and Windows Docker Desktop as a validated alternative.
 - Added public disclosure of development in collaboration with AI agents.
 
@@ -166,7 +197,7 @@
 - Removed capture dependencies and volumes from runtime images.
 - Hardened containers with non-root users, dropped capabilities, read-only root file systems, and `no-new-privileges`.
 - Added log rotation and a shared `.env.example`.
-- Documented account-free LAN mode and authenticated-mode limitations.
+- Documented trusted-LAN identity mode and authenticated-mode limitations.
 
 ### Files changed
 
