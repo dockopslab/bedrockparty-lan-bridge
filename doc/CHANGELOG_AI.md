@@ -21,11 +21,11 @@
 - Markdown-link validation: passed.
 - Linux and Windows Compose validation with `.env.example`: passed.
 - Python unit tests: 2 passed.
-- GitHub Actions build and packaged-license verification: required before creating the release tag.
+- GitHub Actions `CI / validate` run 2: passed; both production images built and the packaged project license and third-party NOTICE checks succeeded.
 
 ### Remaining
 
-- Publish the immutable tag and GitHub Release after the updated CI succeeds.
+- Publish the immutable tag and GitHub Release.
 
 ## 2026-09-01 - Add publication compliance material
 

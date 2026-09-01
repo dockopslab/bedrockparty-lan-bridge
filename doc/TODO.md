@@ -2,7 +2,6 @@
 
 ## High priority
 
-- [ ] Confirm the updated GitHub Actions run builds both images and verifies `/usr/share/licenses/bedrockparty/` before tagging `bedrock-1.26.45-r1`.
 - [ ] Confirm visually that the main Switch player displays the local name already forwarded through `ThirdPartyName`.
 - [ ] Verify that BDS `online-mode=false` persists after restarts and that `allow-list` does not block offline identities.
 - [ ] Confirm that the unauthenticated BDS is not Internet-accessible and remains restricted to the LAN.
@@ -34,6 +33,7 @@
 
 ## Recently completed
 
+- [x] Confirm GitHub Actions builds both images and verifies the packaged BedrockParty license and third-party NOTICE files.
 - [x] Define the `bedrock-<version>-r<revision>` release scheme and prepare the English `bedrock-1.26.45-r1` notes.
 - [x] Add the official Minecraft independence disclaimer, responsible-use conditions, and trademark notices.
 - [x] Inventory Go dependency licenses and package exact license/NOTICE files in the runtime image.
